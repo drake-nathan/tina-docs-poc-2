@@ -4,6 +4,8 @@ import { tinaField, useTina } from "tinacms/dist/react";
 
 import type { ComponentQuery } from "../../../tina/__generated__/types";
 
+import { Breadcrumb } from "../../../components/breadcrumb";
+
 interface ComponentPageClientProps {
   data: ComponentQuery;
   query: string;
@@ -21,7 +23,13 @@ export const ComponentPageClient = (props: ComponentPageClientProps) => {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
+        <Breadcrumb
+          items={[
+            { href: "/components", name: "Components" },
+            { name: component.title || "Component" },
+          ]}
+        />
         {/* Header */}
         <div className="border-b border-gray-200 pb-8">
           <div className="flex items-center justify-between">

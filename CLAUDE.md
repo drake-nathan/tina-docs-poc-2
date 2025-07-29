@@ -17,7 +17,7 @@ This project uses Bun as the package manager. Key commands:
 
 ## Architecture Overview
 
-This is a **TinaCMS self-hosted demo** built with Next.js 14, designed to run entirely on Vercel with content stored in GitHub and data layer backed by Vercel KV (Redis) or optionally MongoDB.
+This is a **TinaCMS design system documentation POC** built with Next.js 14, designed to demonstrate how TinaCMS can power a comprehensive design system documentation site. The application runs on Vercel with content stored in GitHub and data layer backed by Vercel KV (Redis) or optionally MongoDB.
 
 ### Key Components
 
@@ -25,7 +25,10 @@ This is a **TinaCMS self-hosted demo** built with Next.js 14, designed to run en
 
 - `config.tsx` - Main Tina config with auth providers and collections
 - `database.ts` - Database adapter setup (Redis/local)
-- `collections/page.ts` - Content model definitions
+- `collections/` - Content model definitions:
+  - `component.ts` - React component documentation with props, variants, usage examples
+  - `design-token.ts` - Design tokens with CSS variables, Figma tokens, usage notes
+  - `guideline.ts` - Design guidelines with principles, do's/don'ts, related resources
 - `__generated__/` - Auto-generated GraphQL schema, types, and client
 
 **Authentication**:
@@ -36,15 +39,23 @@ This is a **TinaCMS self-hosted demo** built with Next.js 14, designed to run en
 
 **Data Flow**:
 
-- Content stored as Markdown files in `content/pages/`
+- Content stored as Markdown files in structured directories:
+  - `content/components/` - Component documentation
+  - `content/design-tokens/` - Design token specifications
+  - `content/guidelines/` - Design guidelines and principles
 - Database layer uses Vercel KV (Redis) or MongoDB for metadata/auth
 - GitHub integration for content versioning via `tinacms-gitprovider-github`
 - API routes in `pages/api/tina/[...routes].ts` handle GraphQL operations
 
 **Frontend**:
 
-- Next.js App Router (`app/` directory)
-- TailwindCSS for styling
+- Next.js App Router (`app/` directory) with dedicated routes:
+  - `/components/[slug]` - Individual component pages
+  - `/design-tokens/[slug]` - Individual design token pages
+  - `/guidelines/[slug]` - Individual guideline pages
+- Server/client component architecture for TinaCMS editing
+- TailwindCSS for styling with design system patterns
+- Global navigation with breadcrumbs
 - TinaCMS admin at `/admin/index.html`
 
 ### Environment Modes
@@ -63,11 +74,26 @@ The application has two distinct modes controlled by `TINA_PUBLIC_IS_LOCAL`:
 
 ### Content Structure
 
-- **Pages**: Markdown files in `content/pages/` with frontmatter
-- **Schema**: Defined in `tina/collections/page.ts` with fields:
-  - `header` (string)
-  - `logo` (object with url/alt)
-  - `links` (array of objects with header/description/url)
+This design system documentation includes three main content types:
+
+- **Components** (`content/components/`): React component documentation with:
+  - Component name, description, category
+  - Props table with types, default values, descriptions
+  - Variants and states
+  - Usage examples and code snippets
+  - Related components and design tokens
+
+- **Design Tokens** (`content/design-tokens/`): Design system values with:
+  - Token name, description, type, category
+  - CSS variable name and value
+  - Figma token reference
+  - Usage examples and related components
+
+- **Guidelines** (`content/guidelines/`): Design principles and best practices with:
+  - Guideline name, description, type
+  - Do's and don'ts with examples
+  - Related components and design tokens
+  - External resources and references
 
 ### Required Environment Variables
 
@@ -104,8 +130,28 @@ NEXT_PUBLIC_TINA_CLIENT_ID=***
 
 ### Key Files to Understand
 
-- `tina/config.tsx` - TinaCMS configuration and auth setup
+**TinaCMS Configuration**:
+
+- `tina/config.tsx` - TinaCMS configuration with design system collections
 - `tina/database.ts` - Database adapter configuration
 - `pages/api/tina/[...routes].ts` - TinaCMS API endpoint
-- `tina/collections/page.ts` - Content schema definitions
+- `tina/collections/component.ts` - React component schema
+- `tina/collections/design-token.ts` - Design token schema
+- `tina/collections/guideline.ts` - Design guideline schema
+
+**Frontend Components**:
+
+- `app/page.tsx` - Design system homepage with stats and features
+- `components/navigation.tsx` - Global navigation with active states
+- `components/breadcrumb.tsx` - Breadcrumb navigation for content pages
+- `app/layout.tsx` - Root layout with navigation integration
+
+**Content Display**:
+
+- `app/components/[slug]/page-client.tsx` - Component documentation pages
+- `app/design-tokens/[slug]/page-client.tsx` - Design token pages
+- `app/guidelines/[slug]/page-client.tsx` - Guideline pages
+
+**Authentication**:
+
 - `content/users/index.json` - Default auth credentials for development

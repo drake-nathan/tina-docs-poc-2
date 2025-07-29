@@ -5,6 +5,8 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 
 import type { GuidelineQuery } from "../../../tina/__generated__/types";
 
+import { Breadcrumb } from "../../../components/breadcrumb";
+
 interface GuidelinePageClientProps {
   data: GuidelineQuery;
   query: string;
@@ -68,7 +70,13 @@ export const GuidelinePageClient = (props: GuidelinePageClientProps) => {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
+        <Breadcrumb
+          items={[
+            { href: "/guidelines", name: "Guidelines" },
+            { name: guideline.title || "Guideline" },
+          ]}
+        />
         {/* Header */}
         <div className="border-b border-gray-200 pb-8">
           <div className="flex items-center justify-between">
