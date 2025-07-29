@@ -1,30 +1,25 @@
 import type { Collection } from "tinacms";
 
 export const ComponentCollection: Collection = {
-  name: "component",
-  label: "Components",
-  path: "content/components",
-  format: "md",
   fields: [
     {
-      type: "string",
-      name: "title",
-      label: "Component Name",
       isTitle: true,
+      label: "Component Name",
+      name: "title",
       required: true,
+      type: "string",
     },
     {
-      type: "string",
-      name: "description",
       label: "Description",
+      name: "description",
+      type: "string",
       ui: {
         component: "textarea",
       },
     },
     {
-      type: "string",
-      name: "category",
       label: "Category",
+      name: "category",
       options: [
         "Layout",
         "Navigation",
@@ -34,98 +29,103 @@ export const ComponentCollection: Collection = {
         "Overlay",
         "Other",
       ],
-    },
-    {
       type: "string",
-      name: "status",
-      label: "Status",
-      options: ["Stable", "Beta", "Deprecated", "In Development"],
     },
     {
-      type: "object",
-      name: "props",
-      label: "Props",
-      list: true,
+      label: "Status",
+      name: "status",
+      options: ["Stable", "Beta", "Deprecated", "In Development"],
+      type: "string",
+    },
+    {
       fields: [
         {
-          type: "string",
-          name: "name",
           label: "Prop Name",
+          name: "name",
           required: true,
+          type: "string",
         },
         {
-          type: "string",
-          name: "type",
           label: "Type",
+          name: "type",
           required: true,
+          type: "string",
         },
         {
-          type: "string",
-          name: "description",
           label: "Description",
-        },
-        {
-          type: "boolean",
-          name: "required",
-          label: "Required",
-        },
-        {
+          name: "description",
           type: "string",
-          name: "defaultValue",
+        },
+        {
+          label: "Required",
+          name: "required",
+          type: "boolean",
+        },
+        {
           label: "Default Value",
+          name: "defaultValue",
+          type: "string",
         },
       ],
+      label: "Props",
+      list: true,
+      name: "props",
+      type: "object",
       ui: {
         itemProps: (item) => ({
-          label: item?.name || "New Prop",
+          label: item.name || "New Prop",
         }),
       },
     },
     {
-      type: "rich-text",
-      name: "usage",
       label: "Usage Examples",
+      name: "usage",
+      type: "rich-text",
     },
     {
-      type: "string",
-      name: "codeExample",
       label: "Code Example",
+      name: "codeExample",
+      type: "string",
       ui: {
         component: "textarea",
       },
     },
     {
-      type: "object",
-      name: "variants",
-      label: "Variants",
-      list: true,
       fields: [
         {
-          type: "string",
-          name: "name",
           label: "Variant Name",
+          name: "name",
+          type: "string",
         },
         {
-          type: "string",
-          name: "description",
           label: "Description",
+          name: "description",
+          type: "string",
         },
         {
-          type: "string",
-          name: "code",
           label: "Code Example",
+          name: "code",
+          type: "string",
           ui: {
             component: "textarea",
           },
         },
       ],
+      label: "Variants",
+      list: true,
+      name: "variants",
+      type: "object",
       ui: {
         itemProps: (item) => ({
-          label: item?.name || "New Variant",
+          label: item.name || "New Variant",
         }),
       },
     },
   ],
+  format: "md",
+  label: "Components",
+  name: "component",
+  path: "content/components",
   ui: {
     router: ({ document }) => `/components/${document._sys.filename}`,
   },

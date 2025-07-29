@@ -1,30 +1,25 @@
 import type { Collection } from "tinacms";
 
 export const GuidelineCollection: Collection = {
-  name: "guideline",
-  label: "Guidelines",
-  path: "content/guidelines",
-  format: "md",
   fields: [
     {
-      type: "string",
-      name: "title",
-      label: "Guideline Title",
       isTitle: true,
+      label: "Guideline Title",
+      name: "title",
       required: true,
+      type: "string",
     },
     {
-      type: "string",
-      name: "description",
       label: "Description",
+      name: "description",
+      type: "string",
       ui: {
         component: "textarea",
       },
     },
     {
-      type: "string",
-      name: "category",
       label: "Category",
+      name: "category",
       options: [
         "Design Principles",
         "Accessibility",
@@ -35,123 +30,128 @@ export const GuidelineCollection: Collection = {
         "Code Standards",
       ],
       required: true,
-    },
-    {
       type: "string",
-      name: "priority",
+    },
+    {
       label: "Priority",
+      name: "priority",
       options: ["High", "Medium", "Low"],
+      type: "string",
     },
     {
-      type: "rich-text",
-      name: "content",
-      label: "Content",
       isBody: true,
+      label: "Content",
+      name: "content",
+      type: "rich-text",
     },
     {
-      type: "object",
-      name: "principles",
-      label: "Key Principles",
-      list: true,
       fields: [
         {
-          type: "string",
-          name: "title",
           label: "Principle Title",
+          name: "title",
           required: true,
+          type: "string",
         },
         {
-          type: "string",
-          name: "description",
           label: "Description",
+          name: "description",
+          type: "string",
           ui: {
             component: "textarea",
           },
         },
         {
-          type: "string",
-          name: "example",
           label: "Example",
+          name: "example",
+          type: "string",
           ui: {
             component: "textarea",
           },
         },
       ],
+      label: "Key Principles",
+      list: true,
+      name: "principles",
+      type: "object",
       ui: {
         itemProps: (item) => ({
-          label: item?.title || "New Principle",
+          label: item.title || "New Principle",
         }),
       },
     },
     {
-      type: "object",
-      name: "dosDonts",
-      label: "Do's and Don'ts",
       fields: [
         {
-          type: "object",
-          name: "dos",
+          fields: [
+            {
+              label: "Do",
+              name: "text",
+              type: "string",
+              ui: {
+                component: "textarea",
+              },
+            },
+          ],
           label: "Do's",
           list: true,
+          name: "dos",
+          type: "object",
+        },
+        {
           fields: [
             {
-              type: "string",
+              label: "Don't",
               name: "text",
-              label: "Do",
+              type: "string",
               ui: {
                 component: "textarea",
               },
             },
           ],
-        },
-        {
-          type: "object",
-          name: "donts",
           label: "Don'ts",
           list: true,
-          fields: [
-            {
-              type: "string",
-              name: "text",
-              label: "Don't",
-              ui: {
-                component: "textarea",
-              },
-            },
-          ],
+          name: "donts",
+          type: "object",
         },
       ],
+      label: "Do's and Don'ts",
+      name: "dosDonts",
+      type: "object",
     },
     {
-      type: "object",
-      name: "resources",
-      label: "Related Resources",
-      list: true,
       fields: [
         {
-          type: "string",
-          name: "title",
           label: "Resource Title",
+          name: "title",
+          type: "string",
         },
         {
-          type: "string",
-          name: "url",
           label: "URL",
+          name: "url",
+          type: "string",
         },
         {
-          type: "string",
-          name: "type",
           label: "Type",
+          name: "type",
           options: ["Component", "Design Token", "External Link", "Tool"],
+          type: "string",
         },
       ],
+      label: "Related Resources",
+      list: true,
+      name: "resources",
+      type: "object",
       ui: {
         itemProps: (item) => ({
-          label: item?.title || "New Resource",
+          label: item.title || "New Resource",
         }),
       },
     },
   ],
+  format: "md",
+  label: "Guidelines",
+  name: "guideline",
+  path: "content/guidelines",
   ui: {
     router: ({ document }) => `/guidelines/${document._sys.filename}`,
   },

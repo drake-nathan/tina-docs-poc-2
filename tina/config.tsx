@@ -4,10 +4,10 @@ import {
   UsernamePasswordAuthJSProvider,
 } from "tinacms-authjs/dist/tinacms";
 
-import { PageCollection } from "./collections/page";
 import { ComponentCollection } from "./collections/component";
-import { DesignTokenCollection } from "./collections/designToken";
+import { DesignTokenCollection } from "./collections/design-token";
 import { GuidelineCollection } from "./collections/guideline";
+import { PageCollection } from "./collections/page";
 
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === "true";
 
