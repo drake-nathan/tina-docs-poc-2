@@ -1,23 +1,21 @@
 module.exports = {
-  webpack(config) {
+  rewrites: async () => [
+      {
+        destination: "/home",
+        source: "/",
+      },
+      {
+        destination: "/admin/index.html",
+        source: "/admin",
+      },
+    ],
+  webpack: (config) => {
     config.module.rules.push({
-      test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
+      test: /\.svg$/i,
       use: ["@svgr/webpack"],
     });
 
     return config;
-  },
-  async rewrites() {
-    return [
-      {
-        source: "/",
-        destination: "/home",
-      },
-      {
-        source: "/admin",
-        destination: "/admin/index.html",
-      },
-    ];
   },
 };

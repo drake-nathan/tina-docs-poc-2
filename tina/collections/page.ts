@@ -1,45 +1,45 @@
 import type { Collection } from "tinacms";
 
 export const PageCollection: Collection = {
-  name: "page",
-  label: "Page",
-  path: "content/pages",
-  format: "md",
-  ui: {
-    router: () => "/",
-  },
   fields: [
     {
-      type: "string",
-      name: "header",
       label: "Header",
+      name: "header",
+      type: "string",
     },
     {
-      type: "object",
-      name: "logo",
-      label: "Logo",
       fields: [
-        { type: "image", name: "url", label: "URL" },
-        { type: "string", name: "alt", label: "Alt Text" },
+        { label: "URL", name: "url", type: "image" },
+        { label: "Alt Text", name: "alt", type: "string" },
       ],
+      label: "Logo",
+      name: "logo",
+      type: "object",
     },
     {
-      type: "object",
+      fields: [
+        { name: "header", type: "string" },
+        { name: "description", type: "string" },
+        { name: "url", type: "string" },
+      ],
+      label: "Links",
       list: true,
       name: "links",
-      label: "Links",
+      type: "object",
       ui: {
         itemProps: (item) => {
           return {
-            label: item?.header,
+            label: item.header,
           };
         },
       },
-      fields: [
-        { type: "string", name: "header" },
-        { type: "string", name: "description" },
-        { type: "string", name: "url" },
-      ],
     },
   ],
+  format: "md",
+  label: "Page",
+  name: "page",
+  path: "content/pages",
+  ui: {
+    router: () => "/",
+  },
 };
