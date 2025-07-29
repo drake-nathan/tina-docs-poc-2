@@ -5,6 +5,9 @@ import {
 } from "tinacms-authjs/dist/tinacms";
 
 import { PageCollection } from "./collections/page";
+import { ComponentCollection } from "./collections/component";
+import { DesignTokenCollection } from "./collections/designToken";
+import { GuidelineCollection } from "./collections/guideline";
 
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === "true";
 
@@ -25,6 +28,12 @@ export default defineConfig({
     },
   },
   schema: {
-    collections: [TinaUserCollection, PageCollection],
+    collections: [
+      TinaUserCollection, 
+      PageCollection, 
+      ComponentCollection, 
+      DesignTokenCollection, 
+      GuidelineCollection
+    ],
   },
 });
