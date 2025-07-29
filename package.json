@@ -10,7 +10,8 @@
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --max-warnings 0 --fix",
     "format": "prettier . --write --cache",
-    "format:check": "prettier . --check --cache"
+    "format:check": "prettier . --check --cache",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "^22.5.1",
