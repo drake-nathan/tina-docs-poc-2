@@ -28,15 +28,15 @@ props:
     type: ReactNode
     description: Button content
     required: true
-    defaultValue: ''
+    defaultValue: ""
   - name: onClick
     type: "(event: MouseEvent) => void"
     description: Click event handler
     required: false
-    defaultValue: ''
+    defaultValue: ""
 codeExample: |
   import { Button } from '@/components/Button'
-  
+
   export function Example() {
     return (
       <div className="space-x-4">

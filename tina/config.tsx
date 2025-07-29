@@ -29,11 +29,11 @@ export default defineConfig({
   },
   schema: {
     collections: [
-      TinaUserCollection, 
-      PageCollection, 
-      ComponentCollection, 
-      DesignTokenCollection, 
-      GuidelineCollection
+      TinaUserCollection,
+      PageCollection,
+      ComponentCollection,
+      DesignTokenCollection,
+      GuidelineCollection,
     ],
   },
 });

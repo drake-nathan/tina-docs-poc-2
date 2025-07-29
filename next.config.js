@@ -1,14 +1,14 @@
 module.exports = {
   rewrites: async () => [
-      {
-        destination: "/home",
-        source: "/",
-      },
-      {
-        destination: "/admin/index.html",
-        source: "/admin",
-      },
-    ],
+    {
+      destination: "/home",
+      source: "/",
+    },
+    {
+      destination: "/admin/index.html",
+      source: "/admin",
+    },
+  ],
   webpack: (config) => {
     config.module.rules.push({
       issuer: /\.[jt]sx?$/,

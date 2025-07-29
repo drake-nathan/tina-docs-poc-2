@@ -18,15 +18,15 @@ props:
     type: string
     description: Additional CSS classes
     required: false
-    defaultValue: ''
+    defaultValue: ""
   - name: children
     type: ReactNode
     description: Card content
     required: true
-    defaultValue: ''
+    defaultValue: ""
 codeExample: |
   import { Card } from '@/components/Card'
-  
+
   export function Example() {
     return (
       <Card variant="elevated" padding="lg">

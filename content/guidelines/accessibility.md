@@ -55,6 +55,7 @@ Our design system follows WCAG 2.1 AA guidelines to ensure all users can effecti
 ### Color and Contrast
 
 All color combinations in our design system meet or exceed WCAG contrast requirements:
+
 - **Normal text**: 4.5:1 minimum contrast ratio
 - **Large text** (18px+ or 14px+ bold): 3:1 minimum contrast ratio
 - **Interactive elements**: 3:1 minimum contrast ratio against adjacent colors
@@ -62,6 +63,7 @@ All color combinations in our design system meet or exceed WCAG contrast require
 ### Keyboard Navigation
 
 Every interactive element must be accessible via keyboard:
+
 - Tab order follows logical reading flow
 - Focus indicators are clearly visible
 - All functionality available via mouse is also available via keyboard
@@ -70,6 +72,7 @@ Every interactive element must be accessible via keyboard:
 ### Screen Reader Support
 
 Content must be properly structured for screen readers:
+
 - Use semantic HTML elements
 - Provide descriptive headings in hierarchical order
 - Include ARIA labels where semantic HTML isn't sufficient
@@ -78,6 +81,7 @@ Content must be properly structured for screen readers:
 ### Testing Checklist
 
 Before releasing any interface:
+
 - [ ] Test keyboard navigation through all interactive elements
 - [ ] Verify color contrast meets WCAG standards
 - [ ] Test with screen reader (NVDA, JAWS, or VoiceOver)
@@ -88,12 +92,14 @@ Before releasing any interface:
 ### Common Patterns
 
 **Form Labels**: Always associate labels with form inputs
+
 ```html
 <label for="email">Email Address</label>
-<input type="email" id="email" required>
+<input type="email" id="email" required />
 ```
 
 **Button Text**: Use descriptive text that explains the action
+
 ```html
 <!-- Good -->
 <button>Save changes to profile</button>
@@ -103,6 +109,7 @@ Before releasing any interface:
 ```
 
 **Image Alt Text**: Describe the content and function of images
+
 ```html
-<img src="chart.png" alt="Sales increased 25% from Q1 to Q2">
+<img src="chart.png" alt="Sales increased 25% from Q1 to Q2" />
 ```

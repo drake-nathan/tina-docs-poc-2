@@ -22,23 +22,27 @@ This is a **TinaCMS self-hosted demo** built with Next.js 14, designed to run en
 ### Key Components
 
 **TinaCMS Configuration** (`tina/`):
+
 - `config.tsx` - Main Tina config with auth providers and collections
 - `database.ts` - Database adapter setup (Redis/local)
 - `collections/page.ts` - Content model definitions
 - `__generated__/` - Auto-generated GraphQL schema, types, and client
 
 **Authentication**:
+
 - **Local Mode**: `TINA_PUBLIC_IS_LOCAL=true` uses LocalAuthProvider (no auth)
 - **Production Mode**: Uses AuthJS with username/password stored in Vercel KV
 - **Alternative**: Can use Tina Cloud auth with `NEXT_PUBLIC_TINA_CLIENT_ID`
 
 **Data Flow**:
+
 - Content stored as Markdown files in `content/pages/`
 - Database layer uses Vercel KV (Redis) or MongoDB for metadata/auth
 - GitHub integration for content versioning via `tinacms-gitprovider-github`
 - API routes in `pages/api/tina/[...routes].ts` handle GraphQL operations
 
 **Frontend**:
+
 - Next.js App Router (`app/` directory)
 - TailwindCSS for styling
 - TinaCMS admin at `/admin/index.html`
@@ -68,21 +72,24 @@ The application has two distinct modes controlled by `TINA_PUBLIC_IS_LOCAL`:
 ### Required Environment Variables
 
 **Development**:
+
 ```env
 GITHUB_OWNER=***
-GITHUB_REPO=***  
+GITHUB_REPO=***
 GITHUB_BRANCH=***
 GITHUB_PERSONAL_ACCESS_TOKEN=***
 NEXTAUTH_SECRET=***
 ```
 
 **Production (additional)**:
+
 ```env
 KV_REST_API_URL=***
 KV_REST_API_TOKEN=***
 ```
 
 **Optional (Tina Cloud auth)**:
+
 ```env
 NEXT_PUBLIC_TINA_CLIENT_ID=***
 ```

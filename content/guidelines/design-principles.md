@@ -55,13 +55,15 @@ These principles form the foundation of our design system. They guide every deci
 ### User-Centered Design
 
 Every design decision should be made with the user's needs, goals, and context in mind:
+
 - **Understand the user journey**: Map out how users will interact with features
-- **Consider different use cases**: Design for both expert and novice users  
+- **Consider different use cases**: Design for both expert and novice users
 - **Test early and often**: Validate assumptions with real user feedback
 
 ### Systematic Thinking
 
 Our design system should feel cohesive and intentional:
+
 - **Reuse before creating**: Leverage existing components and patterns
 - **Document decisions**: Capture the reasoning behind design choices
 - **Scale thoughtfully**: Ensure patterns work across different contexts
@@ -69,6 +71,7 @@ Our design system should feel cohesive and intentional:
 ### Performance & Efficiency
 
 Good design makes tasks easier and faster:
+
 - **Minimize cognitive load**: Reduce the mental effort required to complete tasks
 - **Optimize for common workflows**: Make frequent actions easy to perform
 - **Provide shortcuts**: Offer power users ways to work more efficiently
@@ -76,6 +79,7 @@ Good design makes tasks easier and faster:
 ### Emotional Design
 
 Great experiences feel delightful and trustworthy:
+
 - **Build confidence**: Use clear language and predictable interactions
 - **Show personality**: Inject appropriate warmth and character
 - **Handle errors gracefully**: Turn failures into opportunities to help
@@ -83,18 +87,21 @@ Great experiences feel delightful and trustworthy:
 ### Implementation Guidelines
 
 **For Designers**:
+
 - Use design tokens for all visual properties
 - Follow component specifications exactly
 - Consider responsive behavior from the start
 - Design realistic states (loading, empty, error)
 
 **For Developers**:
+
 - Use design system components whenever possible
 - Maintain semantic HTML structure
 - Implement proper ARIA labels and roles
 - Test accessibility with assistive technologies
 
 **For Content**:
+
 - Write in active voice with clear, simple language
 - Use consistent terminology throughout the product
 - Provide helpful error messages and instructions
