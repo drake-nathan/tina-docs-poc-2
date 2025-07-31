@@ -1,3 +1,10 @@
+# Setup Instructions
+
+1. Clone the repository
+2. Install Bun
+3. Install dependencies with `bun install`
+4. Run the project locally with `bun run dev`
+
 # Tina Self Hosted Demo 🦙
 
 This is a A Next.js + TinaCMS starter site designed to be hosted on entirely on Vercel (with Markdown in GitHub). Please check out [the docs](https://tina.io/docs/self-hosted/overview/) for more information on self-hosting TinaCMS.
