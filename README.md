@@ -1,7 +1,7 @@
 # Setup Instructions
 
 1. Clone the repository
-2. Install Bun
+2. [Install Bun](https://bun.sh/)
 3. Install dependencies with `bun install`
 4. Run the project locally with `bun run dev`
 
