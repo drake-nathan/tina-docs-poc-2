@@ -1,16 +1,18 @@
 ---
 title: Button
-description: A versatile button component used for user interactions and actions throughout the interface.
+description: >-
+  A versatile button component used for user interactions and actions throughout
+  the interface.
 category: Inputs
 status: Stable
 props:
   - name: variant
-    type: "'primary' | 'secondary' | 'outline' | 'ghost'"
+    type: '''primary'' | ''secondary'' | ''outline'' | ''ghost'''
     description: Visual style variant of the button
     required: false
     defaultValue: primary
   - name: size
-    type: "'sm' | 'md' | 'lg'"
+    type: '''sm'' | ''md'' | ''lg'''
     description: Size of the button
     required: false
     defaultValue: md
@@ -18,22 +20,23 @@ props:
     type: boolean
     description: Whether the button is disabled
     required: false
-    defaultValue: false
+    defaultValue: 'false'
   - name: loading
     type: boolean
     description: Shows loading spinner when true
     required: false
-    defaultValue: false
+    defaultValue: 'false'
   - name: children
     type: ReactNode
     description: Button content
     required: true
-    defaultValue: ""
+    defaultValue: ''
   - name: onClick
-    type: "(event: MouseEvent) => void"
+    type: '(event: MouseEvent) => void'
     description: Click event handler
     required: false
-    defaultValue: ""
+    defaultValue: ''
+usage: ''
 codeExample: |
   import { Button } from '@/components/Button'
 
@@ -74,21 +77,3 @@ variants:
       </Button>
 ---
 
-## Usage
-
-The Button component is the primary interactive element for triggering actions in the user interface. It supports multiple visual styles, sizes, and states to accommodate different use cases and hierarchy levels.
-
-### Best Practices
-
-- Use primary buttons for the main action on a page
-- Limit primary buttons to one per section to maintain clear hierarchy
-- Use secondary buttons for supporting actions
-- Always provide clear, action-oriented labels
-- Consider loading states for async operations
-
-### Accessibility
-
-- Buttons are keyboard accessible by default
-- Screen readers will announce the button text
-- Disabled buttons are properly marked for assistive technology
-- Loading states include appropriate ARIA labels
